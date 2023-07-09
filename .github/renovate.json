@@ -1,5 +1,5 @@
 {
-    "extends": ["config:base", ":rebaseStalePrs", ":pinVersions"],
+    "extends": ["config:recommended", ":rebaseStalePrs", ":pinVersions"],
     "labels": ["renovate"],
     "rollbackPrs": true,
     "dependencyDashboard": false,
@@ -11,13 +11,14 @@
         "labels": ["security"],
         "schedule": "at any time"
     },
-    "docker": {
-        "enabled": false
-    },
     "digest": {
         "enabled": false
     },
     "packageRules": [
+        {
+            "matchCategories": ["docker"],
+            "enabled": false
+        },
         {
             "matchPackageNames": ["vue"],
             "allowedVersions": "<3"
